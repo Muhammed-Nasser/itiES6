@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <select id="menu">
+    </select>
+    <button onclick="show()">Show Details</button>
+    <br>
+    <p id="p"></p>
+    <script>
+        var x
+        fetch("https://jsonplaceholder.typicode.com/users")
+        .then(response => response.json())
+        .then(repos => {
+            const reposList = repos.map(repo => repo.name);
+            console.log(repos);
+            for( let i of reposList){
+                var node = document.createElement("OPTION");                 
+                var textnode = document.createTextNode(i);         
+                node.appendChild(textnode);                             
+                document.getElementById("menu").appendChild(node)}    
+        })
+        .catch(err => console.log(err))
+        function show(){
+            fetch("https://jsonplaceholder.typicode.com/users")
+            .then(response => response.json())
+            .then(repos => {
+            var value = document.getElementById("menu").value
+            console.log(value)
+            const result = repos.find( ({ name }) => name ===  value);
+            console.log(result) 
+            document.getElementById("p").innerHTML= result.id + 
+            "<br>" + result.name
+            + "<br>" + result.phone +
+              "<br>" + result.username
+            + "<br>" + result.website + 
+              "<br>" + result.address.city 
+            + "<br>" + result.address.street 
+            + "<br>" + result.address.suite 
+            + "<br>" + result.address.zipcode
+            + "<br>" + result.company.name 
+            + "<br>" + result.company.catchPhrase 
+            + "<br>" + result.company.bs})
+        }
+    </script>
+
+    
+</body>
+</html>

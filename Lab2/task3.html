@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="placehere">
+
+    </div>
+
+    <script>
+        new Promise(function(resolve, reject) {
+
+            setTimeout(() => resolve("Welcome to my page"), 3000); 
+
+            }).then(function(result) {
+
+            alert(result); 
+            return result;
+
+             }).then( function() {
+                var elem = document.createElement("img");
+                elem.setAttribute("src", "./logo.png");
+                elem.setAttribute("height", "100");
+                elem.setAttribute("width", "150");
+                elem.setAttribute("alt", "Flower");
+                document.getElementById("placehere").appendChild(elem);
+
+             }).then(function(){
+                setTimeout(() => alert("thank you for your visit"), 3000);
+
+            }).then(function(){
+                setTimeout(() => window.location.replace("https://www.iti.gov.eg/iti/home"), 3000);
+            })
+    </script>
+    
+</body>
+</html>

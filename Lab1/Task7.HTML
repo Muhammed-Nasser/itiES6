@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+
+       class student{
+           constructor(x,y,z,a){
+                this.name= "x";
+                this.university= "y";
+                this.faculty= "z";
+                this.grade="a";
+           }
+
+           set studentName([x,y,z]){
+               this.name =[x,y,z];
+           }
+       }
+
+       var st1 = new student()
+       st1.name="Mohamed"
+       console.log(st1.name)
+
+       st1.name="Ahmed"
+       console.log(st1.name)
+
+       var st2 = new student()
+       st1.name="Mohamed"
+       console.log(st1.name)
+
+       var st3 = new student()
+       st3.studentName=["ahmed","Mohamed","ahmed"]
+       console.log(st3.name)
+
+       for(let i of st3.name){
+            console.log(i)
+        }
+
+  
+    </script>
+</body>
+</html>
